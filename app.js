@@ -1,5 +1,5 @@
 
-const socket = io('ws://localhost:8080');
+const socket = io('ws://192.168.1.6:8080');
 
 socket.on('message', text => {
 
