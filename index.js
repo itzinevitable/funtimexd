@@ -1,10 +1,13 @@
 const loginbox = document.getElementById("login");
 const passbox = document.getElementById("password");
 
+//for chat thingy
+// const el = document.createElement('li');
+// el.innerHTML = text;
+// document.querySelector('ul').appendChild(el)
 
 
-function sendToAPI(){
-
+function createAccount(){
     fetch("http://localhost:8080/api/logininfo", {
         method: "post",
         headers: {
@@ -14,20 +17,17 @@ function sendToAPI(){
             "username": loginbox.value,
             "password": passbox.value
         })
+    })
+    .then(response => response.text())
+    .then((dataStr) =>{
+        if(dataStr == "User already existent"){
+            alert("Username taken, try again.")
+        }
     });
-
     
     alert("New Account Created -> ");
+}
 
-    // fetch("http://127.0.0.1:5500/api/testing/1", {
-    //     method: "get",
-    //     headers: {
-    //         "Content-type": "application/json; charset=UTF-8"
-    //     }
-    // })
-    // .then(res => res.json())
-    // .then(res => {
-    //     console.log(res);
-    // })
-    
+function sendMessage(){
+
 }
