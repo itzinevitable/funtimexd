@@ -42,11 +42,11 @@ function sendMessage(){
         alert("Please fill out both boxes before sending a message.")
     }
 
-    fetch("http://localhost:8080/api/msg/send"{
+    fetch("http://localhost:8080/api/msg/send", {
         method: "post",
         headers: "application/json;charset=UTF-8",
         body: JSON.stringify({
-
+            
         })
 
     })
