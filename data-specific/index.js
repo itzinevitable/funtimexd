@@ -8,12 +8,13 @@ const msgbox = document.getElementById("msg");
 
 var client;
 var loggedIn;
-
-while(true){
-    while(loggedIn){
-        console.log("logged in")
-    }
-}
+// const apiURL = "https://springbootapi-1.onrender.com/api";
+const apiURL = "http://localhost:8080"
+// while(true){
+//     while(loggedIn){
+//         console.log("logged in")
+//     }
+// }
 
 function Client(username, password){
     this.username = username
@@ -24,7 +25,9 @@ function createAccount(){
     const username = document.getElementById("username")
     const password = document.getElementById("password")
 
-    fetch("http://localhost:8080/api/login/register", {
+    const apiCall = apiURL + "/login/register";
+
+    fetch(apiCall, {
         method: "post",
         headers: {
             'Content-type': 'application/json;charset=UTF-8'
@@ -54,8 +57,10 @@ function createAccount(){
 function login(){
     const username = document.getElementById("login")
     const password = document.getElementById("pass")
+    
+    const apiCall = apiURL + "/login/signin";
 
-    fetch("http://localhost:8080/api/login/signin",{
+    fetch(apiCall,{
         method: "post",
         headers: {
             'Content-type': "application/json;charset=UTF-8"
@@ -102,7 +107,9 @@ function sendMessage(){
         return
     }
 
-    fetch("http://localhost:8080/api/msg/send", {
+    const apiCall = apiURL + "/msg/send"
+
+    fetch(apiCall, {
         method: "post",
         headers: {
             "content-type": "application/json;charset=UTF-8"
